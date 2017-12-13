@@ -4,13 +4,16 @@ from time import sleep
 def StatusBar(current_run, total_runs, character='=', persistence=False, percentage=False):
 
     '''
+    Generates a Status bar that is 32 characters wide, based on the parameters provided it will either
+    have a percentage counter, stay persistent on the console after completion, and have various characters
+    for the auctual bar
 
     :param current_run: number of times the function has already been run
     :param total_runs: Total times this function will be run
     :param character: Character you wish to use for the status bar, can be any string
     :param persistence: Set to true if you wish to not overwrite the status bar after it completes
     :param percentage: Set to True to display a percentage to the right of the status bar
-    :return:
+    :return: Prints status bar with completion based on current_run and total_runs parameters
     '''
 
     character = str(character)
@@ -39,12 +42,14 @@ def StatusBar(current_run, total_runs, character='=', persistence=False, percent
 def StatusBlock(iterations=1, delay=.5, brackets=None, persistence=False):
 
     '''
+    Creates a spinning status block that you often see on Linux software installs "[/]" Based on the parameters
+    provided it will loop for longer times, stay persistent, change bracket characters or not have brackets at all.
 
     :param iterations: Number of circles you wish the block to make
     :param delay: Float: number of seconds you wish to wait until the circle moves
     :param brackets: Beginning and closing character you wish to use if you want to enclose your wheel in brackets
     :param persistence: Bool: Set to True if you wish to not have the block overwritten after running
-    :return:
+    :return: Prints spinning status block
     '''
 
     def print_with_brackets(open_bracket, character, end_bracket):

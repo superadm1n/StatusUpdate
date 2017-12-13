@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>statusupdate.py &mdash; StatusUpdate 1.00 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.00',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="StatusUpdate 1.00 documentation" href="index.html" />
+    <link rel="prev" title="Project Goal" href="goals.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="statusupdate-py">
+<h1>statusupdate.py<a class="headerlink" href="#statusupdate-py" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the functions that generate the status bar or the status circles</p>
+<span class="target" id="module-StatusUpdate.statusupdate"></span><dl class="function">
+<dt id="StatusUpdate.statusupdate.StatusBar">
+<code class="descclassname">StatusUpdate.statusupdate.</code><code class="descname">StatusBar</code><span class="sig-paren">(</span><em>current_run</em>, <em>total_runs</em>, <em>character='='</em>, <em>persistence=False</em>, <em>percentage=False</em><span class="sig-paren">)</span><a class="headerlink" href="#StatusUpdate.statusupdate.StatusBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a Status bar that is 32 characters wide, based on the parameters provided it will either
+have a percentage counter, stay persistent on the console after completion, and have various characters
+for the auctual bar</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>current_run</strong> &#8211; number of times the function has already been run</li>
+<li><strong>total_runs</strong> &#8211; Total times this function will be run</li>
+<li><strong>character</strong> &#8211; Character you wish to use for the status bar, can be any string</li>
+<li><strong>persistence</strong> &#8211; Set to true if you wish to not overwrite the status bar after it completes</li>
+<li><strong>percentage</strong> &#8211; Set to True to display a percentage to the right of the status bar</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Prints status bar with completion based on current_run and total_runs parameters</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="StatusUpdate.statusupdate.StatusBlock">
+<code class="descclassname">StatusUpdate.statusupdate.</code><code class="descname">StatusBlock</code><span class="sig-paren">(</span><em>iterations=1</em>, <em>delay=0.5</em>, <em>brackets=None</em>, <em>persistence=False</em><span class="sig-paren">)</span><a class="headerlink" href="#StatusUpdate.statusupdate.StatusBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a spinning status block that you often see on Linux software installs &#8220;[/]&#8221; Based on the parameters
+provided it will loop for longer times, stay persistent, change bracket characters or not have brackets at all.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iterations</strong> &#8211; Number of circles you wish the block to make</li>
+<li><strong>delay</strong> &#8211; Float: number of seconds you wish to wait until the circle moves</li>
+<li><strong>brackets</strong> &#8211; Beginning and closing character you wish to use if you want to enclose your wheel in brackets</li>
+<li><strong>persistence</strong> &#8211; Bool: Set to True if you wish to not have the block overwritten after running</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Prints spinning status block</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="goals.html" title="previous chapter">Project Goal</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/autodoc.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Kyle Kowalczyk.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/autodoc.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
