@@ -16,6 +16,8 @@ Contents:
 
    goals
 
+   install_instructions
+
    autodoc
 
 Indices and tables

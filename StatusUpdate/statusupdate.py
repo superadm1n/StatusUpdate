@@ -39,7 +39,7 @@ def StatusBar(current_run, total_runs, character='=', persistence=False, percent
     if persistence is True and current_run == total_runs:
         print('[{}]'.format('{}{}'.format(character * number_of_bar_characters, ' ' * number_of_spaces)))
 
-def StatusBlock(iterations=1, delay=.5, brackets=None, persistence=False):
+def StatusBlock(iterations=1, delay=.5, brackets=None, persistence=False, trailingtext='', preceding_text=''):
 
     '''
     Creates a spinning status block that you often see on Linux software installs "[/]" Based on the parameters
@@ -53,7 +53,7 @@ def StatusBlock(iterations=1, delay=.5, brackets=None, persistence=False):
     '''
 
     def print_with_brackets(open_bracket, character, end_bracket):
-        print('{}{}{}'.format(open_bracket, character, end_bracket), end='\r')
+        print('{} {}{}{} {}'.format(preceding_text, open_bracket, character, end_bracket, trailingtext), end='\r')
 
     iter_counter = 0
     counter = 1
@@ -85,9 +85,9 @@ def StatusBlock(iterations=1, delay=.5, brackets=None, persistence=False):
                 print_with_brackets(open_bracket, character, end_bracket)
 
             else:
-                print('{}'.format(character), end='\r')
+                print('{} {}'.format(preceding_text, character, trailingtext), end='\r')
         else:
-            print('{}'.format(character), end='\r')
+            print('{} {}'.format(preceding_text, character, trailingtext), end='\r')
 
         sleep(delay)
 
