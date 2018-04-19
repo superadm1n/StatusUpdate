@@ -94,3 +94,30 @@ def StatusBlock(iterations=1, delay=.5, brackets=None, persistence=False, traili
     # if the persistence flag is set the last line of output will be a new line so the block does not get overwritten
     if persistence == True:
         print('')
+
+def StatusFooter(footer, updateLine):
+
+    # adds up the length of each of the strings passed
+    footerLength = len(footer)
+    updateLinelength = len(updateLine)
+
+    # prints the footer to the user and returns to the beginning of the line
+    print(footer, end='\r')
+
+    # if the text to be displayed is not as long as the footer it will get the number of spaces
+    # it needs to insert to fully cover the footer and insert those spaces. if the text is longer it
+    # will just print the footer
+    if updateLinelength < footerLength:
+        x = footerLength - updateLinelength
+        print('{}'.format(updateLine) + ' ' * x)
+    else:
+        print(updateLine)
+
+    # This is where we write another copy of the footer and return to the beginning of the line.
+    # like above it will determine if the footer is shorter than the text that was previously
+    # displayed and if it is it inserts the proper amount of spaces to cover the whole line.
+    if footerLength < updateLinelength:
+        x = updateLinelength - footerLength
+        print('{}'.format(footer) + ' ' * x, end='\r')
+    else:
+        print(footer, end='\r')
