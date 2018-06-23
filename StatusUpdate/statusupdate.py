@@ -1,5 +1,14 @@
 from time import sleep
 
+def _CalculateBar(current_run, total_runs):
+
+    # This is the algorithm for calculating number of bar characters and space characters required to
+    # keep the status bar the proper size regardless of the total number of times run
+
+    number_of_bar_characters = int(current_run / (total_runs / 30))
+    number_of_spaces = 30 - number_of_bar_characters
+
+    return number_of_bar_characters, number_of_spaces
 
 def StatusBar(current_run, total_runs, character='=', persistence=False, percentage=False):
 
@@ -18,12 +27,11 @@ def StatusBar(current_run, total_runs, character='=', persistence=False, percent
 
     character = str(character)
 
-    # This is the algorithm for calculating number of bar characters and space characters required to
-    # keep the status bar the proper size regardless of the total number of times run
+    # Calculates the total number of bar characters and space characters needed to put into the bar
 
-    key = total_runs / 30
-    number_of_bar_characters = int(current_run / (total_runs / 30))
-    number_of_spaces = 30 - number_of_bar_characters
+    number_of_bar_characters, number_of_spaces = _CalculateBar(current_run, total_runs)
+    print(number_of_spaces, number_of_bar_characters)
+
 
     # if the percentage flag is set to True it will print out a percentage of completion after the status bar
     if percentage is True:
@@ -38,6 +46,27 @@ def StatusBar(current_run, total_runs, character='=', persistence=False, percent
     # the prompt
     if persistence is True and current_run == total_runs:
         print('[{}]'.format('{}{}'.format(character * number_of_bar_characters, ' ' * number_of_spaces)))
+
+
+def _determineCharacter(counter, iter_counter):
+    if counter == 1:
+        character = '|'
+        counter += 1
+
+    elif counter == 2:
+        character = '/'
+        counter += 1
+
+    elif counter == 3:
+        character = '-'
+        counter += 1
+
+    else:
+        counter = 1
+        iter_counter += 1
+        character = '\\'
+
+    return counter, iter_counter, character
 
 def StatusBlock(iterations=1, delay=.5, brackets=None, persistence=False, trailingtext='', preceding_text=''):
 
@@ -60,22 +89,7 @@ def StatusBlock(iterations=1, delay=.5, brackets=None, persistence=False, traili
 
     while iter_counter != iterations:
 
-        if counter == 1:
-            character = '|'
-            counter += 1
-
-        elif counter == 2:
-            character = '/'
-            counter += 1
-
-        elif counter == 3:
-            character = '-'
-            counter += 1
-
-        else:
-            counter = 1
-            iter_counter += 1
-            character = '\\'
+        counter, iter_counter, character = _determineCharacter(counter, iter_counter)
 
         # This if statement handles printing the status block
         if brackets:
@@ -121,3 +135,13 @@ def StatusFooter(footer, updateLine):
         print('{}'.format(footer) + ' ' * x, end='\r')
     else:
         print(footer, end='\r')
+
+
+if __name__ == '__main__':
+    from time import sleep
+
+    for x in range(10):
+        StatusBar(x, 10)
+        sleep(.3)
+
+    StatusBlock(2)
