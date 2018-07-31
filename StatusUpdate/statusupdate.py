@@ -30,7 +30,6 @@ def StatusBar(current_run, total_runs, character='=', persistence=False, percent
     # Calculates the total number of bar characters and space characters needed to put into the bar
 
     number_of_bar_characters, number_of_spaces = _CalculateBar(current_run, total_runs)
-    print(number_of_spaces, number_of_bar_characters)
 
 
     # if the percentage flag is set to True it will print out a percentage of completion after the status bar
